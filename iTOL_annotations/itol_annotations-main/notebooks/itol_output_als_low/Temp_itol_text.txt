@@ -1,0 +1,190 @@
+
+DATASET_TEXT
+#In text datasets, each ID is associated to text label, which can be displayed directly on the node branch, or outside the tree
+#lines starting with a hash are comments and ignored during parsing
+#=================================================================#
+#                    MANDATORY SETTINGS                           #
+#=================================================================#
+#select the separator which is used to delimit the data below (TAB,SPACE or COMMA).This separator must be used throughout this file.
+#SEPARATOR TAB
+#SEPARATOR SPACE
+SEPARATOR COMMA
+
+#label is used in the legend table (can be changed later)
+DATASET_LABEL,Temp_text
+
+#dataset color (can be changed later)
+COLOR,#ff0000
+
+#=================================================================#
+#                    OPTIONAL SETTINGS                            #
+#=================================================================#
+
+#=================================================================#
+#     all other optional settings can be set or changed later     #
+#           in the web interface (under 'Datasets' tab)           #
+#=================================================================#
+
+#left margin, used to increase/decrease the spacing to the next dataset. Can be negative, causing datasets to overlap. Used only for text labels which are displayed on the outside
+MARGIN,0
+
+#applies to external text labels only; if set, text labels associated to internal nodes will be displayed even if these nodes are not collapsed. It could cause overlapping in the dataset display.
+SHOW_INTERNAL,0
+
+#Rotate all labels by the specified angle
+ALL_LABELS_ROTATION,0
+
+#By default, internal labels will be placed above the branches. If LABELS_BELOW is set to 1, labels will be below the branches
+LABELS_BELOW,1
+
+#Shift internal labels vertically by this amount of pixels (positive or negative)
+VERTICAL_SHIFT,-20
+
+#If set to 1, tree rotation will not influence the individual label rotation
+STRAIGHT_LABELS,0
+
+#applies to external text labels only; If set to 1, labels will be displayed in arcs aligned to the tree (in circular mode) or vertically (in normal mode). All rotation parameters (global or individual) will be ignored.
+ALIGN_TO_TREE,0
+
+#font size factor; For external text labels, default font size will be slightly less than the available space between leaves, but you can set a multiplication factor here to increase/decrease it (values from 0 to 1 will decrease it, values above 1 will increase it)
+SIZE_FACTOR,1
+
+#add extra horizontal shift to the external labels. Useful in unrooted display mode to shift text labels further away from the node labels.
+EXTERNAL_LABEL_SHIFT,0
+
+
+#display or hide the dataset label above the external labels column
+#SHOW_LABELS 1
+
+#dataset label size factor
+#LABEL_SIZE_FACTOR 1
+
+#dataset label rotation
+#LABEL_ROTATION 0
+
+#dataset label shift in pixels (positive or negative)
+#LABEL_SHIFT 0
+
+
+#Internal tree nodes can be specified using IDs directly, or using the 'last common ancestor' method described in iTOL help pages
+#=================================================================#
+#       Actual data follows after the "DATA" keyword              #
+#=================================================================#
+#the following fields are possible for each node:
+#ID,label,position,color,style,size_factor,rotation
+
+#position defines the position of the text label on the tree:
+#  -1 = external label
+#  a number between 0 and 1 = internal label positioned at the specified value along the node branch (for example, position 0 is exactly at the start of node branch, position 0.5 is in the middle, and position 1 is at the end)
+#style can be 'normal',''bold','italic' or 'bold-italic'
+#size factor will be multiplied with the standard font size
+
+DATA
+#Examples
+
+#node 9598 will have an external label 'Pan troglodytes' in bold red and twice the size of standard labels
+#9598,Pan troglodytes,-1,#ff0000,bold,2,0
+
+#node 9606 will have an external label with multiple mixed styles
+#9606,<bi color='#006600'>Homo </bi><i>sapiens</i><sup size='0.5' color='#999999'>citation</sup>,-1,#000000,normal,1,0
+
+#node 4530 will have an internal label 'Oryza sativa' in bold italic blue, starting directly over the node
+#4530,Oryza sativa,0,#0000ff,bold-italic,1,0
+A0A652PZI1_9ENTR,15.5,-1,#0000ff,bold-italic,1,0 
+A0A486Q2K5_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A6TA67_KLEP7,15.5,-1,#0000ff,bold-italic,1,0 
+A0A7S5J0L8_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A483W6U3_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A483GV06_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A7Z9DLM8_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A3S4J706_KLEAE,15.5,-1,#0000ff,bold-italic,1,0 
+A0A486T240_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A2X3DZ94_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A483LS18_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A2V3KEY8_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A483H011_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A081M5M6_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+V0AT48_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A486RST9_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A486T3I2_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A483KLQ2_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A0N9SDD8_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A1F2M2G7_9ENTR,15.5,-1,#0000ff,bold-italic,1,0 
+B5XWE0_KLEP3,15.5,-1,#0000ff,bold-italic,1,0 
+A0A6I7EZ72_KLEVA,15.5,-1,#0000ff,bold-italic,1,0 
+A0A486U8H5_KLEPN,15.5,-1,#0000ff,bold-italic,1,0 
+A0A7T7N0P3_9ENTR,15.5,-1,#0000ff,bold-italic,1,0 
+A0A1C3Q9S7_9ENTR,15.5,-1,#0000ff,bold-italic,1,0 
+A0A2N4VS88_9ENTR,15.5,-1,#0000ff,bold-italic,1,0 
+A0A3T0QKF8_9ENTR,15.5,-1,#0000ff,bold-italic,1,0 
+A0A2A5MQP5_9ENTR,15.5,-1,#0000ff,bold-italic,1,0 
+A0A223UAA8_9ENTR,15.5,-1,#0000ff,bold-italic,1,0 
+R4YA84_KLEPR,15.5,-1,#0000ff,bold-italic,1,0 
+A0A0M3H596_KLEAE,15.5,-1,#0000ff,bold-italic,1,0 
+A0A6P1UTN8_9ENTR,15.5,-1,#0000ff,bold-italic,1,0 
+A0A3E1SLB5_KLEOX,15.5,-1,#0000ff,bold-italic,1,0 
+A0A7T8P898_9ENTR,15.5,-1,#0000ff,bold-italic,1,0 
+A0A169ES88_KLEOX,15.5,-1,#0000ff,bold-italic,1,0 
+A0A6M2B2T8_9GAMM,15.8,-1,#0000ff,bold-italic,1,0 
+A0A2N0W722_9GAMM,15.8,-1,#0000ff,bold-italic,1,0 
+H2ISN2_RAHAC,15.8,-1,#0000ff,bold-italic,1,0 
+A0A0H3FF07_RAHSY,15.8,-1,#0000ff,bold-italic,1,0 
+A0A4R2YT95_9GAMM,15.8,-1,#0000ff,bold-italic,1,0 
+A0A4R7GEE6_9GAMM,15.8,-1,#0000ff,bold-italic,1,0 
+A0A7X9EM70_9GAMM,15.8,-1,#0000ff,bold-italic,1,0 
+A0A419MB27_9GAMM,15.8,-1,#0000ff,bold-italic,1,0 
+A0A0Q4MXN8_9GAMM,15.8,-1,#0000ff,bold-italic,1,0 
+A0A502GKC6_9GAMM,15.8,-1,#0000ff,bold-italic,1,0 
+A0A6I6HUL7_9GAMM,2.0,-1,#0000ff,bold-italic,1,0 
+K1IF51_9GAMM,2.0,-1,#0000ff,bold-italic,1,0 
+A0A0T6PBJ4_9GAMM,2.0,-1,#0000ff,bold-italic,1,0 
+A0A494TY78_9GAMM,2.0,-1,#0000ff,bold-italic,1,0 
+A0A6I6R7H8_9GAMM,2.0,-1,#0000ff,bold-italic,1,0 
+A0A1E4VSX9_9GAMM,2.0,-1,#0000ff,bold-italic,1,0 
+A0A2R7Q615_9GAMM,2.0,-1,#0000ff,bold-italic,1,0 
+A0A1E4X8K8_9GAMM,2.0,-1,#0000ff,bold-italic,1,0 
+A0A7Z3TVF7_9GAMM,2.0,-1,#0000ff,bold-italic,1,0 
+A0A7D5SPN0_9GAMM,2.0,-1,#0000ff,bold-italic,1,0 
+A0A7Z6WDP9_9GAMM,2.0,-1,#0000ff,bold-italic,1,0 
+A0A2N3IYP8_AERSO,2.0,-1,#0000ff,bold-italic,1,0 
+A0A1S2CPU9_AERSO,2.0,-1,#0000ff,bold-italic,1,0 
+A0A291TJP9_9GAMM,2.0,-1,#0000ff,bold-italic,1,0 
+A0A6S5Y4T9_9GAMM,2.0,-1,#0000ff,bold-italic,1,0 
+A0A0D0PHL7_9GAMM,3.0,-1,#0000ff,bold-italic,1,0 
+A0A5B9EER2_9BACT,0.7776,-1,#0000ff,bold-italic,1,0 
+A0A259MVK3_9PROT,4.0,-1,#0000ff,bold-italic,1,0 
+A0A5Q0BBA8_9GAMM,4.0,-1,#0000ff,bold-italic,1,0 
+A0A1G9IVS0_STREI,23.4,-1,#0000ff,bold-italic,1,0 
+A0A6I6IBR9_STREI,23.4,-1,#0000ff,bold-italic,1,0 
+A0A6G8I1F2_9STRE,23.4,-1,#0000ff,bold-italic,1,0 
+A0A6N2YWT1_9STRE,23.4,-1,#0000ff,bold-italic,1,0 
+A0A654M5W2_9STRE,23.4,-1,#0000ff,bold-italic,1,0 
+A0A3S4M2T1_9STRE,23.4,-1,#0000ff,bold-italic,1,0 
+A0A2I1YIR8_STRMC,23.4,-1,#0000ff,bold-italic,1,0 
+A0A368UG80_9STRE,23.4,-1,#0000ff,bold-italic,1,0 
+A0A380K626_9STRE,23.4,-1,#0000ff,bold-italic,1,0 
+A0A1H7UK02_9STRE,23.4,-1,#0000ff,bold-italic,1,0 
+A0A060RJZ9_9STRE,23.4,-1,#0000ff,bold-italic,1,0 
+A0A139N5I2_9STRE,23.4,-1,#0000ff,bold-italic,1,0 
+A0A139QZE6_9STRE,23.4,-1,#0000ff,bold-italic,1,0 
+A0A1S5WBE5_STRGY,23.4,-1,#0000ff,bold-italic,1,0 
+A0A380KCP6_9STRE,23.4,-1,#0000ff,bold-italic,1,0 
+A0A2E5E9E1_9BACT,26.518986,-1,#0000ff,bold-italic,1,0 
+A0A2E0XW46_9BACT,23.706525,-1,#0000ff,bold-italic,1,0 
+A0A431J0N9_9NEIS,22.250309,-1,#0000ff,bold-italic,1,0 
+A0A2E0AMU2_9CYAN,22.250309,-1,#0000ff,bold-italic,1,0 
+A0A7G7KTB1_9SYNE,24.948842,-1,#0000ff,bold-italic,1,0 
+A0A7G8FTM1_9SYNE,18.342533,-1,#0000ff,bold-italic,1,0 
+A0A2G2LTQ0_9GAMM,-0.1,-1,#0000ff,bold-italic,1,0 
+A0A7U5TVK3_METNJ,4.216697,-1,#0000ff,bold-italic,1,0 
+A0A2D9KU02_9GAMM,4.216697,-1,#0000ff,bold-italic,1,0 
+A0A4S5JLW7_9GAMM,4.216697,-1,#0000ff,bold-italic,1,0 
+A0A1E3GTE6_9GAMM,4.216697,-1,#0000ff,bold-italic,1,0 
+A0A2E2IJA0_9GAMM,4.216697,-1,#0000ff,bold-italic,1,0 
+M7P1N7_9GAMM,4.216697,-1,#0000ff,bold-italic,1,0 
+A0A7C1S760_9DELT,8.210557,-1,#0000ff,bold-italic,1,0 
+A0A3A6NJJ9_9DELT,-0.1,-1,#0000ff,bold-italic,1,0 
+A0A2E2QYZ0_9RICK,19.854083,-1,#0000ff,bold-italic,1,0 
+A0A2A5XZM6_9PROT,19.854083,-1,#0000ff,bold-italic,1,0 
+A0A3R7RCE7_9PROT,17.321979,-1,#0000ff,bold-italic,1,0 
+A0A6H9LME2_9BACT,16.751066,-1,#0000ff,bold-italic,1,0 

@@ -1,0 +1,190 @@
+
+    DATASET_RANGE
+#Colored/labeled range datasets allow the highlighting of various clades or leaf ranges by using colored boxes or brackets.
+
+#lines starting with a hash sign are comments and ignored during parsing
+#=================================================================#
+#                    MANDATORY SETTINGS                           #
+#=================================================================#
+#select the separator which is used to delimit the data below (TAB,SPACE or COMMA).This separator must be used throughout this file.
+#SEPARATOR TAB
+#SEPARATOR SPACE
+SEPARATOR COMMA
+
+#label is used in the legend table (can be changed later)
+DATASET_LABEL, Temp_ranges
+
+#dataset color in the legend table
+COLOR,#ffff00
+
+
+#=================================================================#
+#                    OPTIONAL SETTINGS                            #
+#=================================================================#
+
+#=================================================================#
+#        all optional settings can be set or changed later        #
+#           in the web interface (under 'Datasets' tab)           #
+#=================================================================#
+
+#RANGE_TYPE defines how the rages will be visualized:
+   #box: standard colored box/polygon. Various LINE_? fields in the range definition will be used for the border style. 
+   #bracket: a line or bracket outside the tree
+
+RANGE_TYPE,box
+#
+#Box/polygon specific options, used when RANGE_TYPE is 'box'
+#
+
+#specify what the range boxes will cover: 'label','clade' or 'tree'
+RANGE_COVER,clade
+
+#simplify or smooth polygons when in unrooted display mode: 'none', 'simplify' or 'smooth'
+UNROOTED_SMOOTH,simplify
+
+#when RANGE_COVER is set to 'clade' or 'tree', you can disable the covering of labels (ie. limiting the boxes to the tree structure only)
+COVER_LABELS,0
+
+#if set to 1, ranges will cover any displayed extrernal datasets as well
+COVER_DATASETS,0
+
+#if set to 1, size of the boxes will be extended to fit their labels
+FIT_LABELS,0
+
+#
+#Bracket specific options, used when RANGE_TYPE is 'bracket'
+#
+
+#bracket style can be: 'none','square' or 'curved'
+BRACKET_STYLE,square
+
+#size of the bracket ends (for 'square' or 'curved' brackets)
+BRACKET_SIZE,20
+
+#shift the bracket position horizontally
+BRACKET_SHIFT,50
+
+#if set to 1, brackets will be displayed behind the last visible external dataset
+BRACKET_BEHIND_DATASETS,1
+
+#
+#Options related to range labels
+#
+
+SHOW_LABELS,1
+
+#the position of the label in the range box (or relative to the bracket): 'top-left','top-center','top-right',
+#                                                                         'center-left','center-center','center-right',
+#                                                                         'bottom-left','bottom-center','bottom-right'
+LABEL_POSITION,bottom-right
+
+#Display the labels vertically. In circular display mode (or with brackets in unrooted display mode), labels will be aligned to the circle
+LABELS_VERTICAL,0
+
+#labels remain straight, regardless of the tree rotation or other rotation parameters
+STRAIGHT_LABELS,0
+
+#rotate all labels by the specified angle
+LABEL_ROTATION,0
+
+#shift all labels horizontally and/or vertically
+LABEL_SHIFT_X,0
+LABEL_SHIFT_Y,0
+
+#add a colored outline to the label font; useful when displaying labels over similarly colored boxes (e.g. black font on a dark box)
+LABEL_OUTLINE_WIDTH,0
+LABEL_OUTLINE_COLOR,#ffffff
+
+#multiply the size of all labels by this factor
+LABEL_SIZE_FACTOR,1
+
+#shrink range boxes or brackets vertically, to introduce spacing between neighbouring ranges
+VERTICAL_SHRINK,0
+
+#Each dataset can have a legend, which is defined using LEGEND_XXX fields below
+#For each row in the legend, there should be one shape, color and label.
+#Optionally, you can define an exact legend position using LEGEND_POSITION_X and LEGEND_POSITION_Y. To use automatic legend positioning, do NOT define these values
+#Optionally, shape scaling can be present (LEGEND_SHAPE_SCALES). For each shape, you can define a scaling factor between 0 and 1.
+#To order legend entries horizontally instead of vertically, set LEGEND_HORIZONTAL to 1
+#Shape should be a number between 1 and 6, or any protein domain shape definition.
+#1: square
+#2: circle
+#3: star
+#4: right pointing triangle
+#5: left pointing triangle
+#6: checkmark
+
+#LEGEND_TITLE,Dataset legend
+#LEGEND_POSITION_X,100
+#LEGEND_POSITION_Y,100
+#LEGEND_HORIZONTAL,0
+#LEGEND_SHAPES,1,2,3
+#LEGEND_COLORS,#ff0000,#00ff00,#0000ff
+#LEGEND_LABELS,value1,value2,value3
+#LEGEND_SHAPE_SCALES,1,1,0.5
+
+
+
+#Internal tree nodes can be specified by using IDs directly, or by using the 'last common ancestor' method described in iTOL help pages
+#=================================================================#
+#       Actual data follows after the "DATA" keyword              #
+#=================================================================#
+#the following fields are available in each line:
+
+#START_NODE_ID,END_NODE_ID,FILL_COLOR,GRADIENT_COLOR,LINE_COLOR,LINE_STYLE,LINE_WIDTH,LABEL_TEXT,LABEL_COLOR,LABEL_SIZE_FACTOR,LABEL_STYLE
+
+#The range is defined through START_NODE_ID and END_NODE_ID.
+#If GRADIENT_FILL color is defined, the box will be filled with a gradient from FILL_COLOR to GRADIENT_COLOR.  Brackets will also be visualized as gradients.
+#LINE_COLOR will be used for the box/polygon border, or for the brackets. If not specified, FILL_COLOR will be used instead
+#LINE_STYLE can be 'solid', 'dashed' or 'dotted'
+#LABEL_STYLE can be 'normal', 'bold', 'italic' or 'bold-italic'
+
+DATA
+#Examples
+#a range between leaves 9606 and 184922, filled with a gradient from white (#ffffff) to red (#ff0000), with a 2px dashed black (#000000) border and a blue (#0000ff) italic label
+#9606,184922,#ffffff,#ff0000,#000000,dashed,2,Example range,#0000ff,1,italic
+    sp_C1DFH7_ILVC_AZOVD,sp_C1DFH7_ILVC_AZOVD,#0077B6,#0077B6,#0077B6,dashed,2,7.212238,black,italic
+tr_L0E0X7_L0E0X7_THIND,tr_L0E0X7_L0E0X7_THIND,#0077B6,#0077B6,#0077B6,dashed,2,7.212238,black,italic
+tr_A0A0C1KLA6_A0A0C1KLA6_9PSED,tr_A0A0C1KLA6_A0A0C1KLA6_9PSED,#48CAE4,#48CAE4,#48CAE4,dashed,2,23.0,black,italic
+tr_A0A0B6WSC0_A0A0B6WSC0_9BACT,tr_A0A0B6WSC0_A0A0B6WSC0_9BACT,#023E8A,#023E8A,#023E8A,dashed,2,1.0,black,italic
+tr_A0A258V9Q8_A0A258V9Q8_9SPHN,tr_A0A258V9Q8_A0A258V9Q8_9SPHN,#023E8A,#023E8A,#023E8A,dashed,2,4.216697,black,italic
+tr_A0A8J7MZV9_A0A8J7MZV9_9PROT,tr_A0A8J7MZV9_A0A8J7MZV9_9PROT,#48CAE4,#48CAE4,#48CAE4,dashed,2,24.69625,black,italic
+tr_A0A2S6RJP7_A0A2S6RJP7_9PROT,tr_A0A2S6RJP7_A0A2S6RJP7_9PROT,#023E8A,#023E8A,#023E8A,dashed,2,4.216697,black,italic
+tr_A0A7V8IQ16_A0A7V8IQ16_9PROT,tr_A0A7V8IQ16_A0A7V8IQ16_9PROT,#0077B6,#0077B6,#0077B6,dashed,2,5.791448,black,italic
+tr_A0A2D6ZRJ2_A0A2D6ZRJ2_9PROT,tr_A0A2D6ZRJ2_A0A2D6ZRJ2_9PROT,#0077B6,#0077B6,#0077B6,dashed,2,6.2402,black,italic
+tr_A0A2A4VAT5_A0A2A4VAT5_9PROT,tr_A0A2A4VAT5_A0A2A4VAT5_9PROT,#0096C7,#0096C7,#0096C7,dashed,2,14.11885,black,italic
+tr_F1YWP4_F1YWP4_9PROT,tr_F1YWP4_F1YWP4_9PROT,#0096C7,#0096C7,#0096C7,dashed,2,10.21177,black,italic
+tr_A0A8J2Y7G3_A0A8J2Y7G3_9PROT,tr_A0A8J2Y7G3_A0A8J2Y7G3_9PROT,#023E8A,#023E8A,#023E8A,dashed,2,0.67108,black,italic
+tr_A0A6L7LVK1_A0A6L7LVK1_9GAMM,tr_A0A6L7LVK1_A0A6L7LVK1_9GAMM,#48CAE4,#48CAE4,#48CAE4,dashed,2,22.1151,black,italic
+tr_A0A2H5XC00_A0A2H5XC00_9BACT,tr_A0A2H5XC00_A0A2H5XC00_9BACT,#FFCE03,#FFCE03,#FFCE03,dashed,2,70.0,black,italic
+tr_A0A2G8PDJ7_A0A2G8PDJ7_9SYNE,tr_A0A2G8PDJ7_A0A2G8PDJ7_9SYNE,#0077B6,#0077B6,#0077B6,dashed,2,5.8659,black,italic
+tr_A0A6G2JQN9_A0A6G2JQN9_9BACT,tr_A0A6G2JQN9_A0A6G2JQN9_9BACT,#48CAE4,#48CAE4,#48CAE4,dashed,2,20.171605,black,italic
+tr_A0A1G1JI71_A0A1G1JI71_9BACT,tr_A0A1G1JI71_A0A1G1JI71_9BACT,#00B4D8,#00B4D8,#00B4D8,dashed,2,18.0,black,italic
+tr_F5L972_F5L972_CALTT,tr_F5L972_F5L972_CALTT,#B80000,#B80000,#B80000,dashed,2,82.0,black,italic
+tr_A0A2W1AZR1_A0A2W1AZR1_9CHLR,tr_A0A2W1AZR1_A0A2W1AZR1_9CHLR,#023E8A,#023E8A,#023E8A,dashed,2,4.216697,black,italic
+tr_A0A2V8GK10_A0A2V8GK10_9BACT,tr_A0A2V8GK10_A0A2V8GK10_9BACT,#0077B6,#0077B6,#0077B6,dashed,2,7.212238,black,italic
+tr_A0A838UZH0_A0A838UZH0_9CHLR,tr_A0A838UZH0_A0A838UZH0_9CHLR,#0077B6,#0077B6,#0077B6,dashed,2,5.8659,black,italic
+tr_A0A6I1ZPT2_A0A6I1ZPT2_9BACT,tr_A0A6I1ZPT2_A0A6I1ZPT2_9BACT,#48CAE4,#48CAE4,#48CAE4,dashed,2,21.643283,black,italic
+tr_A0A7C5XC74_A0A7C5XC74_9BACT,tr_A0A7C5XC74_A0A7C5XC74_9BACT,#F00505,#F00505,#F00505,dashed,2,81.0,black,italic
+tr_A0A068NJC1_A0A068NJC1_FIMGI,tr_A0A068NJC1_A0A068NJC1_FIMGI,#023E8A,#023E8A,#023E8A,dashed,2,4.749588,black,italic
+tr_A0A2A4SJA3_A0A2A4SJA3_9CHLR,tr_A0A2A4SJA3_A0A2A4SJA3_9CHLR,#0077B6,#0077B6,#0077B6,dashed,2,5.8659,black,italic
+tr_A0A6L7Q0Y3_A0A6L7Q0Y3_9CHLR,tr_A0A6L7Q0Y3_A0A6L7Q0Y3_9CHLR,#03045E,#03045E,#03045E,dashed,2,-0.3881,black,italic
+tr_A0A2W4U438_A0A2W4U438_9BACT,tr_A0A2W4U438_A0A2W4U438_9BACT,#0096C7,#0096C7,#0096C7,dashed,2,13.0,black,italic
+tr_A0A1G4SVA9_A0A1G4SVA9_9CAUL,tr_A0A1G4SVA9_A0A1G4SVA9_9CAUL,#023E8A,#023E8A,#023E8A,dashed,2,3.0,black,italic
+tr_A0A2D5FRJ2_A0A2D5FRJ2_9PROT,tr_A0A2D5FRJ2_A0A2D5FRJ2_9PROT,#023E8A,#023E8A,#023E8A,dashed,2,4.216697,black,italic
+tr_A0A1W9HGP1_A0A1W9HGP1_9PROT,tr_A0A1W9HGP1_A0A1W9HGP1_9PROT,#90E0EF,#90E0EF,#90E0EF,dashed,2,25.0621,black,italic
+tr_A0A3M1RXF9_A0A3M1RXF9_9GAMM,tr_A0A3M1RXF9_A0A3M1RXF9_9GAMM,#0077B6,#0077B6,#0077B6,dashed,2,7.212238,black,italic
+tr_A0A829YJA1_A0A829YJA1_9GAMM,tr_A0A829YJA1_A0A829YJA1_9GAMM,#023E8A,#023E8A,#023E8A,dashed,2,4.936634,black,italic
+tr_A0A4R6UGV6_A0A4R6UGV6_9GAMM,tr_A0A4R6UGV6_A0A4R6UGV6_9GAMM,#48CAE4,#48CAE4,#48CAE4,dashed,2,24.69625,black,italic
+tr_A0A2A2XV17_A0A2A2XV17_9BACT,tr_A0A2A2XV17_A0A2A2XV17_9BACT,#023E8A,#023E8A,#023E8A,dashed,2,1.0,black,italic
+tr_A0A8J3GFM7_A0A8J3GFM7_9BACT,tr_A0A8J3GFM7_A0A8J3GFM7_9BACT,#023E8A,#023E8A,#023E8A,dashed,2,1.0,black,italic
+tr_A0A4Y8PHL3_A0A4Y8PHL3_9BACT,tr_A0A4Y8PHL3_A0A4Y8PHL3_9BACT,#0096C7,#0096C7,#0096C7,dashed,2,10.2584,black,italic
+sp_Q64BR7_ILVC_UNCAG,sp_Q64BR7_ILVC_UNCAG,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.117663,black,italic
+tr_A0A202DGF0_A0A202DGF0_9ARCH,tr_A0A202DGF0_A0A202DGF0_9ARCH,#023E8A,#023E8A,#023E8A,dashed,2,0.45883,black,italic
+tr_A0A523B5H0_A0A523B5H0_9ARCH,tr_A0A523B5H0_A0A523B5H0_9ARCH,#FFCE03,#FFCE03,#FFCE03,dashed,2,70.0,black,italic
+tr_A0A7J2SXB0_A0A7J2SXB0_9CREN,tr_A0A7J2SXB0_A0A7J2SXB0_9CREN,#0077B6,#0077B6,#0077B6,dashed,2,8.113126,black,italic
+tr_A0A2K5AQA4_A0A2K5AQA4_9ARCH,tr_A0A2K5AQA4_A0A2K5AQA4_9ARCH,#023E8A,#023E8A,#023E8A,dashed,2,4.0,black,italic
+tr_A0A2R6AE13_A0A2R6AE13_9ARCH,tr_A0A2R6AE13_A0A2R6AE13_9ARCH,#0096C7,#0096C7,#0096C7,dashed,2,12.066048,black,italic
+tr_A0A7J3XWF1_A0A7J3XWF1_9ARCH,tr_A0A7J3XWF1_A0A7J3XWF1_9ARCH,#023E8A,#023E8A,#023E8A,dashed,2,4.216697,black,italic
+tr_A0A538U5U8_A0A538U5U8_9BACT,tr_A0A538U5U8_A0A538U5U8_9BACT,#03045E,#03045E,#03045E,dashed,2,-1.3292,black,italic
+tr_A0A136KWC7_A0A136KWC7_9CHLR,tr_A0A136KWC7_A0A136KWC7_9CHLR,#48CAE4,#48CAE4,#48CAE4,dashed,2,23.706525,black,italic

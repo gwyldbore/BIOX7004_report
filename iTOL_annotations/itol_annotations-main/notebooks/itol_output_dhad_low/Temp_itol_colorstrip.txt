@@ -1,0 +1,222 @@
+DATASET_COLORSTRIP
+#In colored strip datasets, each ID is associated to a color box/strip and can have an optional label. Color can be specified in hexadecimal, RGB or RGBA notation. When using RGB or RGBA notation, you cannot use COMMA as the dataset separator
+
+#lines starting with a hash are comments and ignored during parsing
+
+#=================================================================#
+#                    MANDATORY SETTINGS                           #
+#=================================================================#
+#select the separator which is used to delimit the data below (TAB,SPACE or COMMA).This separator must be used throughout this file.
+
+#SEPARATOR TAB
+SEPARATOR COMMA
+#SEPARATOR SPACE
+
+#label is used in the legend table (can be changed later)
+DATASET_LABEL,Temp_colorstrip
+
+#dataset color (can be changed later)
+COLOR,#ff0000
+
+#=================================================================#
+#                    OPTIONAL SETTINGS                            #
+#=================================================================#
+
+#If COLOR_BRANCHES is set to 1, branches of the tree will be colored according to the colors of the strips above the leaves.
+#When all children of a node have the same color, it will be colored the same, ie. the color will propagate inwards towards the root.
+COLOR_BRANCHES,0
+
+
+#=================================================================#
+#     all other optional settings can be set or changed later     #
+#           in the web interface (under 'Datasets' tab)           #
+#=================================================================#
+
+#Each dataset can have a legend, which is defined using LEGEND_XXX fields below
+#For each row in the legend, there should be one shape, color and label.
+#Optionally, you can define an exact legend position using LEGEND_POSITION_X and LEGEND_POSITION_Y. To use automatic legend positioning, do NOT define these values
+#Optionally, shape scaling can be present (LEGEND_SHAPE_SCALES). For each shape, you can define a scaling factor between 0 and 1.
+#To order legend entries horizontally instead of vertically, set LEGEND_HORIZONTAL to 1
+#Shape should be a number between 1 and 6, or any protein domain shape definition.
+#1: square
+#2: circle
+#3: star
+#4: right pointing triangle
+#5: left pointing triangle
+#6: checkmark
+
+#LEGEND_TITLE Dataset_legend
+#LEGEND_POSITION_X 100
+#LEGEND_POSITION_Y 100
+#LEGEND_HORIZONTAL 0
+#LEGEND_SHAPES 1 1 2 2
+#LEGEND_COLORS #ff0000 #00ff00 rgba(0,255,0,0.5) #0000ff
+#LEGEND_LABELS value1 value2 value3 value4
+#LEGEND_SHAPE_SCALES 1 1 0.5 1
+
+#width of the colored strip
+#STRIP_WIDTH 25
+
+#left margin, used to increase/decrease the spacing to the next dataset. Can be negative, causing datasets to overlap.
+#MARGIN 0
+
+#border width; if set above 0, a border of specified width (in pixels) will be drawn around the color strip 
+#BORDER_WIDTH 0
+
+#border color; used when BORDER_WIDTH is above 0
+#BORDER_COLOR #0000ff
+
+#if set to 1, border will be drawn completely around each colored strip box
+#COMPLETE_BORDER 0
+
+#always show internal values; if set, values associated to internal nodes will be displayed even if these nodes are not collapsed. It could cause overlapping in the dataset display.
+#SHOW_INTERNAL 0
+
+
+#display or hide the individual label inside each colored strip (when defined in the data below)
+#SHOW_STRIP_LABELS 1
+
+#position of the strip label within the box; 'top', 'center' or 'bottom'
+#STRIP_LABEL_POSITION center
+
+#strip label size factor (relative to the tree leaf labels)
+#STRIP_LABEL_SIZE_FACTOR 1
+
+
+#rotation of the strip labels; used only in rectangular tree display mode
+#STRIP_LABEL_ROTATION 0
+
+#strip label shift in pixels (positive or negative)
+#STRIP_LABEL_SHIFT 0
+
+#STRIP_LABEL_COLOR #000000
+
+#draw a black outline around the text (width in pixels)
+#STRIP_LABEL_OUTLINE 0.5
+
+#display or hide the dataset label above the colored strip
+#SHOW_LABELS 1
+
+#dataset label size factor
+#SIZE_FACTOR 1
+
+#dataset label rotation
+#LABEL_ROTATION 0
+
+#dataset label shift in pixels (positive or negative)
+#LABEL_SHIFT 0
+
+#Internal tree nodes can be specified using IDs directly, or using the 'last common ancestor' method described in iTOL help pages
+
+#=================================================================#
+#       Actual data follows after the "DATA" keyword              #
+#=================================================================#
+DATA
+
+#Examples:
+#assign a red colored strip to leaf 9606, with label 'Human'
+#9606 #ff0000 Human
+
+#assign a green, semi-transparent (alpha 0.5) strip to an internal node, without any label. If 'Show internal values' is set to 'No', this will only be displayed if the node is collapsed. 
+#9606|5664 rgba(0,255,0,0.5)
+tr|A0A2N1ZDW8|A0A2N1ZDW8_9GAMM,#0077B6,7.212238 
+tr|A0A1R1LDV1|A0A1R1LDV1_9GAMM,#00B4D8,19.854083 
+tr|X7E3Y8|X7E3Y8_9GAMM,#90E0EF,25.37395 
+tr|A0A7W9ZIS0|A0A7W9ZIS0_NOVIT,#48CAE4,22.7 
+tr|A0A367W222|A0A367W222_9PROT,#023E8A,4.749588 
+tr|A0A3B0U1X0|A0A3B0U1X0_9ZZZZ,#023E8A,4.216697 
+tr|A0A2D4TDY5|A0A2D4TDY5_9GAMM,#03045E,-0.351 
+tr|A0A7X0JQR8|A0A7X0JQR8_9GAMM,#00B4D8,15.161277 
+tr|A0A966X4W5|A0A966X4W5_9GAMM,#00B4D8,18.732683 
+tr|A0A5N0T6G9|A0A5N0T6G9_9GAMM,#90E0EF,25.0621 
+tr|A0A554XA21|A0A554XA21_9BURK,#03045E,-1.5 
+tr|A0A976CAY8|A0A976CAY8_9PROT,#0096C7,10.21177 
+tr|A0A1Y5TW35|A0A1Y5TW35_9PROT,#48CAE4,23.799133 
+tr|A0Z4E8|A0Z4E8_9GAMM,#00B4D8,18.342533 
+tr|A0A2D9STF5|A0A2D9STF5_9GAMM,#00B4D8,17.36746 
+tr|Q1YRL1|Q1YRL1_9GAMM,#023E8A,0.45883 
+tr|A0A3C0KWH2|A0A3C0KWH2_9GAMM,#03045E,-2.7225 
+tr|A0A5Q2QCS5|A0A5Q2QCS5_9GAMM,#0096C7,12.83445 
+tr|A0A2G6IMY9|A0A2G6IMY9_9RHOB,#48CAE4,21.81495 
+tr|A0A932V2D1|A0A932V2D1_9BACT,#03045E,-0.78154 
+tr|A0A2D8YFT6|A0A2D8YFT6_9PROT,#023E8A,4.216697 
+tr|A0A2E4QXF3|A0A2E4QXF3_9PROT,#023E8A,4.749588 
+tr|C6XJD9|C6XJD9_HIRBI,#023E8A,4.216697 
+tr|A0A2G2G4J3|A0A2G2G4J3_9PROT,#90E0EF,26.576175 
+tr|A0A962K3N6|A0A962K3N6_9GAMM,#023E8A,4.216697 
+tr|A0A2A5D1M3|A0A2A5D1M3_9GAMM,#023E8A,4.216697 
+tr|A0A2D7SSE1|A0A2D7SSE1_9FLAO,#00B4D8,15.01895 
+tr|A0A2E2TDF2|A0A2E2TDF2_9FLAO,#00B4D8,18.342533 
+tr|A0A3N2DNN6|A0A3N2DNN6_9GAMM,#0096C7,12.83445 
+tr|A0A2D3VVZ1|A0A2D3VVZ1_9PROT,#00B4D8,18.014508 
+tr|Q1H3B0|Q1H3B0_METFK,#90E0EF,25.37395 
+tr|A0A3B8QM87|A0A3B8QM87_9RHOB,#48CAE4,23.706525 
+tr|A0A965HZ47|A0A965HZ47_9PROT,#023E8A,4.673875 
+tr|A6FX56|A6FX56_9DELT,#48CAE4,24.948842 
+tr|A0A2E6LXP1|A0A2E6LXP1_9GAMM,#00B4D8,18.732683 
+tr|A0A349YB38|A0A349YB38_9PROT,#0077B6,5.791448 
+tr|A0A8T7JKV9|A0A8T7JKV9_9GAMM,#0096C7,12.83445 
+tr|A0A0R2PA24|A0A0R2PA24_9GAMM,#023E8A,2.0 
+tr|A0A2E8TIH7|A0A2E8TIH7_9FLAO,#03045E,-1.655 
+tr|A0A2E1J1E2|A0A2E1J1E2_9GAMM,#00B4D8,19.566255 
+tr|A0A937I5B0|A0A937I5B0_9GAMM,#00B4D8,16.151933 
+tr|J4V1D9|J4V1D9_9GAMM,#90E0EF,27.119358 
+tr|A0A2A4UZ46|A0A2A4UZ46_9GAMM,#48CAE4,21.81495 
+tr|T1XFK0|T1XFK0_VARPD,#023E8A,1.0 
+tr|A0A2S5T175|A0A2S5T175_9BURK,#023E8A,4.936634 
+sp|Q9A9Z2|XYLD_CAUVC,#023E8A,4.936634 
+WP_112904778.1,#0096C7,14.987618 
+tr|A0A0G4H720|A0A0G4H720_VITBC,#48CAE4,22.261435 
+tr|A0A076NTK8|A0A076NTK8_FLAPS,#0096C7,14.11885 
+tr|A0A925GQ02|A0A925GQ02_9BACT,#0096C7,12.8 
+tr|A0A961NSH3|A0A961NSH3_9LEPT,#00B4D8,15.161277 
+tr|A0A8J2BU63|A0A8J2BU63_9BACT,#023E8A,1.0 
+tr|A0A0P0G010|A0A0P0G010_9BACT,#0077B6,6.975635 
+tr|A0A523MBN0|A0A523MBN0_9GAMM,#00B4D8,15.161277 
+tr|A0A2E9KV40|A0A2E9KV40_9SPIR,#0077B6,7.212238 
+tr|A0A966XNI2|A0A966XNI2_9PROT,#0077B6,8.911481 
+tr|A0A5E6M727|A0A5E6M727_9BACT,#00B4D8,19.854083 
+tr|A0A2V2UCR9|A0A2V2UCR9_9ARCH,#03045E,-0.3457 
+tr|A0A212PRS7|A0A212PRS7_9CHLR,#023E8A,4.216697 
+tr|A0A7C2UBE3|A0A7C2UBE3_UNCCH,#0077B6,8.210557 
+tr|A0A2E4A231|A0A2E4A231_9BACT,#00B4D8,19.30925 
+tr|A0A353X7C2|A0A353X7C2_9PROT,#48CAE4,21.643283 
+sp|Q97UB2|ILVD_SACS2,#023E8A,1.0 
+tr|A0A0D5ZDU2|A0A0D5ZDU2_UNCAX,#FEF001,65.0 
+tr|A0A2H5ZBN6|A0A2H5ZBN6_9BACT,#0096C7,11.3158 
+tr|A0A522Q441|A0A522Q441_9BACT,#023E8A,1.0 
+tr|A0A6B0XBB3|A0A6B0XBB3_UNCGE,#0077B6,7.026748 
+tr|A0A932RQF4|A0A932RQF4_9BACT,#023E8A,4.216697 
+tr|A0A2E0H2I4|A0A2E0H2I4_UNCCH,#90E0EF,26.576175 
+tr|A0A3D2WEM3|A0A3D2WEM3_UNCGE,#00B4D8,16.751066 
+tr|A0A538M189|A0A538M189_UNCAC,#023E8A,4.216697 
+tr|A0A7V9CSD2|A0A7V9CSD2_UNCAC,#48CAE4,22.1151 
+tr|A0A0M9AFE8|A0A0M9AFE8_THEAQ,#0077B6,7.212238 
+tr|A0A1V0DDB1|A0A1V0DDB1_9BACT,#FD6104,75.0 
+tr|A0A537BLV1|A0A537BLV1_9PROT,#023E8A,1.0 
+tr|A0A2S6TPR5|A0A2S6TPR5_9PROT,#00B4D8,15.161277 
+tr|A0A4R5V7E5|A0A4R5V7E5_9RHOB,#00B4D8,19.1288 
+tr|A0A970XFT2|A0A970XFT2_9FIRM,#48CAE4,21.7 
+tr|A0A1G9H8C5|A0A1G9H8C5_9FIRM,#ADE8F4,35.0 
+tr|A0A7C5MIT9|A0A7C5MIT9_9ARCH,#FFCE03,70.0 
+tr|A0A7C1JAI3|A0A7C1JAI3_9PROT,#00B4D8,19.4 
+tr|A0A023CY34|A0A023CY34_9LACO,#F00505,81.0 
+tr|A0A2T6D2G6|A0A2T6D2G6_9BACT,#0096C7,14.2 
+tr|Q1LEH9|Q1LEH9_CUPMC,#ADE8F4,35.0 
+tr|M1LAK9|M1LAK9_9PROT,#ADE8F4,35.0 
+sp|P05791|ILVD_ECOLI,#00B4D8,15.8 
+tr|A0P843|A0P843_9PROT,#00B4D8,15.5 
+tr|A0A1S7LFV7|A0A1S7LFV7_MAGMO,#ADE8F4,35.0 
+tr|A0A7L5C056|A0A7L5C056_9RHOB,#023E8A,4.936634 
+tr|A0A2E9Y3F7|A0A2E9Y3F7_9PROT,#0096C7,12.066048 
+tr|A0A2N7DSU9|A0A2N7DSU9_9GAMM,#0077B6,8.210557 
+tr|A0A1G3NZU3|A0A1G3NZU3_9SPIR,#48CAE4,24.69625 
+tr|A0A949C8I6|A0A949C8I6_9PROT,#03045E,-0.1 
+tr|A0A2D9QS98|A0A2D9QS98_9BACT,#0096C7,13.159842 
+tr|A0A964Q2Y8|A0A964Q2Y8_9BACT,#023E8A,0.45883 
+tr|A9LH23|A9LH23_9BACT,#00B4D8,19.30925 
+tr|A0A960NAF1|A0A960NAF1_9BACT,#48CAE4,23.706525 
+tr|A0A2E3CC86|A0A2E3CC86_9CHLR,#00B4D8,15.161277 
+tr|A0A2E5HTG0|A0A2E5HTG0_UNCCH,#0096C7,13.159842 
+tr|A0A800EWV4|A0A800EWV4_9CHLR,#48CAE4,22.1151 
+tr|A0A7Y1V809|A0A7Y1V809_9BACT,#90E0EF,29.980283 

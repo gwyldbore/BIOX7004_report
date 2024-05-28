@@ -1,0 +1,246 @@
+
+    DATASET_RANGE
+#Colored/labeled range datasets allow the highlighting of various clades or leaf ranges by using colored boxes or brackets.
+
+#lines starting with a hash sign are comments and ignored during parsing
+#=================================================================#
+#                    MANDATORY SETTINGS                           #
+#=================================================================#
+#select the separator which is used to delimit the data below (TAB,SPACE or COMMA).This separator must be used throughout this file.
+#SEPARATOR TAB
+#SEPARATOR SPACE
+SEPARATOR COMMA
+
+#label is used in the legend table (can be changed later)
+DATASET_LABEL, Temp_ranges
+
+#dataset color in the legend table
+COLOR,#ffff00
+
+
+#=================================================================#
+#                    OPTIONAL SETTINGS                            #
+#=================================================================#
+
+#=================================================================#
+#        all optional settings can be set or changed later        #
+#           in the web interface (under 'Datasets' tab)           #
+#=================================================================#
+
+#RANGE_TYPE defines how the rages will be visualized:
+   #box: standard colored box/polygon. Various LINE_? fields in the range definition will be used for the border style. 
+   #bracket: a line or bracket outside the tree
+
+RANGE_TYPE,box
+#
+#Box/polygon specific options, used when RANGE_TYPE is 'box'
+#
+
+#specify what the range boxes will cover: 'label','clade' or 'tree'
+RANGE_COVER,clade
+
+#simplify or smooth polygons when in unrooted display mode: 'none', 'simplify' or 'smooth'
+UNROOTED_SMOOTH,simplify
+
+#when RANGE_COVER is set to 'clade' or 'tree', you can disable the covering of labels (ie. limiting the boxes to the tree structure only)
+COVER_LABELS,0
+
+#if set to 1, ranges will cover any displayed extrernal datasets as well
+COVER_DATASETS,0
+
+#if set to 1, size of the boxes will be extended to fit their labels
+FIT_LABELS,0
+
+#
+#Bracket specific options, used when RANGE_TYPE is 'bracket'
+#
+
+#bracket style can be: 'none','square' or 'curved'
+BRACKET_STYLE,square
+
+#size of the bracket ends (for 'square' or 'curved' brackets)
+BRACKET_SIZE,20
+
+#shift the bracket position horizontally
+BRACKET_SHIFT,50
+
+#if set to 1, brackets will be displayed behind the last visible external dataset
+BRACKET_BEHIND_DATASETS,1
+
+#
+#Options related to range labels
+#
+
+SHOW_LABELS,1
+
+#the position of the label in the range box (or relative to the bracket): 'top-left','top-center','top-right',
+#                                                                         'center-left','center-center','center-right',
+#                                                                         'bottom-left','bottom-center','bottom-right'
+LABEL_POSITION,bottom-right
+
+#Display the labels vertically. In circular display mode (or with brackets in unrooted display mode), labels will be aligned to the circle
+LABELS_VERTICAL,0
+
+#labels remain straight, regardless of the tree rotation or other rotation parameters
+STRAIGHT_LABELS,0
+
+#rotate all labels by the specified angle
+LABEL_ROTATION,0
+
+#shift all labels horizontally and/or vertically
+LABEL_SHIFT_X,0
+LABEL_SHIFT_Y,0
+
+#add a colored outline to the label font; useful when displaying labels over similarly colored boxes (e.g. black font on a dark box)
+LABEL_OUTLINE_WIDTH,0
+LABEL_OUTLINE_COLOR,#ffffff
+
+#multiply the size of all labels by this factor
+LABEL_SIZE_FACTOR,1
+
+#shrink range boxes or brackets vertically, to introduce spacing between neighbouring ranges
+VERTICAL_SHRINK,0
+
+#Each dataset can have a legend, which is defined using LEGEND_XXX fields below
+#For each row in the legend, there should be one shape, color and label.
+#Optionally, you can define an exact legend position using LEGEND_POSITION_X and LEGEND_POSITION_Y. To use automatic legend positioning, do NOT define these values
+#Optionally, shape scaling can be present (LEGEND_SHAPE_SCALES). For each shape, you can define a scaling factor between 0 and 1.
+#To order legend entries horizontally instead of vertically, set LEGEND_HORIZONTAL to 1
+#Shape should be a number between 1 and 6, or any protein domain shape definition.
+#1: square
+#2: circle
+#3: star
+#4: right pointing triangle
+#5: left pointing triangle
+#6: checkmark
+
+#LEGEND_TITLE,Dataset legend
+#LEGEND_POSITION_X,100
+#LEGEND_POSITION_Y,100
+#LEGEND_HORIZONTAL,0
+#LEGEND_SHAPES,1,2,3
+#LEGEND_COLORS,#ff0000,#00ff00,#0000ff
+#LEGEND_LABELS,value1,value2,value3
+#LEGEND_SHAPE_SCALES,1,1,0.5
+
+
+
+#Internal tree nodes can be specified by using IDs directly, or by using the 'last common ancestor' method described in iTOL help pages
+#=================================================================#
+#       Actual data follows after the "DATA" keyword              #
+#=================================================================#
+#the following fields are available in each line:
+
+#START_NODE_ID,END_NODE_ID,FILL_COLOR,GRADIENT_COLOR,LINE_COLOR,LINE_STYLE,LINE_WIDTH,LABEL_TEXT,LABEL_COLOR,LABEL_SIZE_FACTOR,LABEL_STYLE
+
+#The range is defined through START_NODE_ID and END_NODE_ID.
+#If GRADIENT_FILL color is defined, the box will be filled with a gradient from FILL_COLOR to GRADIENT_COLOR.  Brackets will also be visualized as gradients.
+#LINE_COLOR will be used for the box/polygon border, or for the brackets. If not specified, FILL_COLOR will be used instead
+#LINE_STYLE can be 'solid', 'dashed' or 'dotted'
+#LABEL_STYLE can be 'normal', 'bold', 'italic' or 'bold-italic'
+
+DATA
+#Examples
+#a range between leaves 9606 and 184922, filled with a gradient from white (#ffffff) to red (#ff0000), with a 2px dashed black (#000000) border and a blue (#0000ff) italic label
+#9606,184922,#ffffff,#ff0000,#000000,dashed,2,Example range,#0000ff,1,italic
+    tr|A0A2N1ZDW8|A0A2N1ZDW8_9GAMM,tr|A0A2N1ZDW8|A0A2N1ZDW8_9GAMM,#0077B6,#0077B6,#0077B6,dashed,2,7.212238,black,italic
+tr|A0A1R1LDV1|A0A1R1LDV1_9GAMM,tr|A0A1R1LDV1|A0A1R1LDV1_9GAMM,#90E0EF,#90E0EF,#90E0EF,dashed,2,26.780158,black,italic
+tr|X7E3Y8|X7E3Y8_9GAMM,tr|X7E3Y8|X7E3Y8_9GAMM,#90E0EF,#90E0EF,#90E0EF,dashed,2,25.581433,black,italic
+tr|A0A7W9ZIS0|A0A7W9ZIS0_NOVIT,tr|A0A7W9ZIS0|A0A7W9ZIS0_NOVIT,#48CAE4,#48CAE4,#48CAE4,dashed,2,22.7,black,italic
+tr|A0A367W222|A0A367W222_9PROT,tr|A0A367W222|A0A367W222_9PROT,#023E8A,#023E8A,#023E8A,dashed,2,4.749588,black,italic
+tr|A0A3B0U1X0|A0A3B0U1X0_9ZZZZ,tr|A0A3B0U1X0|A0A3B0U1X0_9ZZZZ,#ADE8F4,#ADE8F4,#ADE8F4,dashed,2,30.496383,black,italic
+tr|A0A2D4TDY5|A0A2D4TDY5_9GAMM,tr|A0A2D4TDY5|A0A2D4TDY5_9GAMM,#0096C7,#0096C7,#0096C7,dashed,2,13.0,black,italic
+tr|A0A7X0JQR8|A0A7X0JQR8_9GAMM,tr|A0A7X0JQR8|A0A7X0JQR8_9GAMM,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.617558,black,italic
+tr|A0A966X4W5|A0A966X4W5_9GAMM,tr|A0A966X4W5|A0A966X4W5_9GAMM,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.723425,black,italic
+tr|A0A5N0T6G9|A0A5N0T6G9_9GAMM,tr|A0A5N0T6G9|A0A5N0T6G9_9GAMM,#ADE8F4,#ADE8F4,#ADE8F4,dashed,2,31.144,black,italic
+tr|A0A554XA21|A0A554XA21_9BURK,tr|A0A554XA21|A0A554XA21_9BURK,#03045E,#03045E,#03045E,dashed,2,-0.55,black,italic
+tr|A0A976CAY8|A0A976CAY8_9PROT,tr|A0A976CAY8|A0A976CAY8_9PROT,#48CAE4,#48CAE4,#48CAE4,dashed,2,23.706525,black,italic
+tr|A0A1Y5TW35|A0A1Y5TW35_9PROT,tr|A0A1Y5TW35|A0A1Y5TW35_9PROT,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.589917,black,italic
+tr|A0Z4E8|A0Z4E8_9GAMM,tr|A0Z4E8|A0Z4E8_9GAMM,#00B4D8,#00B4D8,#00B4D8,dashed,2,18.342533,black,italic
+tr|A0A2D9STF5|A0A2D9STF5_9GAMM,tr|A0A2D9STF5|A0A2D9STF5_9GAMM,#00B4D8,#00B4D8,#00B4D8,dashed,2,17.36746,black,italic
+tr|Q1YRL1|Q1YRL1_9GAMM,tr|Q1YRL1|Q1YRL1_9GAMM,#023E8A,#023E8A,#023E8A,dashed,2,4.936634,black,italic
+tr|A0A3C0KWH2|A0A3C0KWH2_9GAMM,tr|A0A3C0KWH2|A0A3C0KWH2_9GAMM,#03045E,#03045E,#03045E,dashed,2,-1.7425,black,italic
+tr|A0A5Q2QCS5|A0A5Q2QCS5_9GAMM,tr|A0A5Q2QCS5|A0A5Q2QCS5_9GAMM,#0096C7,#0096C7,#0096C7,dashed,2,12.83445,black,italic
+tr|A0A2G6IMY9|A0A2G6IMY9_9RHOB,tr|A0A2G6IMY9|A0A2G6IMY9_9RHOB,#ADE8F4,#ADE8F4,#ADE8F4,dashed,2,31.2,black,italic
+tr|A0A932V2D1|A0A932V2D1_9BACT,tr|A0A932V2D1|A0A932V2D1_9BACT,#0077B6,#0077B6,#0077B6,dashed,2,7.321517,black,italic
+tr|A0A2D8YFT6|A0A2D8YFT6_9PROT,tr|A0A2D8YFT6|A0A2D8YFT6_9PROT,#90E0EF,#90E0EF,#90E0EF,dashed,2,25.02619,black,italic
+tr|A0A2E4QXF3|A0A2E4QXF3_9PROT,tr|A0A2E4QXF3|A0A2E4QXF3_9PROT,#48CAE4,#48CAE4,#48CAE4,dashed,2,24.69625,black,italic
+tr|C6XJD9|C6XJD9_HIRBI,tr|C6XJD9|C6XJD9_HIRBI,#00B4D8,#00B4D8,#00B4D8,dashed,2,19.776808,black,italic
+tr|A0A2G2G4J3|A0A2G2G4J3_9PROT,tr|A0A2G2G4J3|A0A2G2G4J3_9PROT,#90E0EF,#90E0EF,#90E0EF,dashed,2,26.62925,black,italic
+tr|A0A962K3N6|A0A962K3N6_9GAMM,tr|A0A962K3N6|A0A962K3N6_9GAMM,#00B4D8,#00B4D8,#00B4D8,dashed,2,19.776808,black,italic
+tr|A0A2A5D1M3|A0A2A5D1M3_9GAMM,tr|A0A2A5D1M3|A0A2A5D1M3_9GAMM,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.617558,black,italic
+tr|A0A2D7SSE1|A0A2D7SSE1_9FLAO,tr|A0A2D7SSE1|A0A2D7SSE1_9FLAO,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.329517,black,italic
+tr|A0A2E2TDF2|A0A2E2TDF2_9FLAO,tr|A0A2E2TDF2|A0A2E2TDF2_9FLAO,#48CAE4,#48CAE4,#48CAE4,dashed,2,20.460612,black,italic
+tr|A0A3N2DNN6|A0A3N2DNN6_9GAMM,tr|A0A3N2DNN6|A0A3N2DNN6_9GAMM,#00B4D8,#00B4D8,#00B4D8,dashed,2,16.40115,black,italic
+tr|A0A2D3VVZ1|A0A2D3VVZ1_9PROT,tr|A0A2D3VVZ1|A0A2D3VVZ1_9PROT,#00B4D8,#00B4D8,#00B4D8,dashed,2,18.014508,black,italic
+tr|Q1H3B0|Q1H3B0_METFK,tr|Q1H3B0|Q1H3B0_METFK,#90E0EF,#90E0EF,#90E0EF,dashed,2,25.581433,black,italic
+tr|A0A3B8QM87|A0A3B8QM87_9RHOB,tr|A0A3B8QM87|A0A3B8QM87_9RHOB,#90E0EF,#90E0EF,#90E0EF,dashed,2,26.812225,black,italic
+tr|A0A965HZ47|A0A965HZ47_9PROT,tr|A0A965HZ47|A0A965HZ47_9PROT,#ADE8F4,#ADE8F4,#ADE8F4,dashed,2,31.021,black,italic
+tr|A6FX56|A6FX56_9DELT,tr|A6FX56|A6FX56_9DELT,#ADE8F4,#ADE8F4,#ADE8F4,dashed,2,30.496383,black,italic
+tr|A0A2E6LXP1|A0A2E6LXP1_9GAMM,tr|A0A2E6LXP1|A0A2E6LXP1_9GAMM,#ADE8F4,#ADE8F4,#ADE8F4,dashed,2,31.021,black,italic
+tr|A0A349YB38|A0A349YB38_9PROT,tr|A0A349YB38|A0A349YB38_9PROT,#90E0EF,#90E0EF,#90E0EF,dashed,2,25.221787,black,italic
+tr|A0A8T7JKV9|A0A8T7JKV9_9GAMM,tr|A0A8T7JKV9|A0A8T7JKV9_9GAMM,#0096C7,#0096C7,#0096C7,dashed,2,12.83445,black,italic
+tr|A0A0R2PA24|A0A0R2PA24_9GAMM,tr|A0A0R2PA24|A0A0R2PA24_9GAMM,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.117663,black,italic
+tr|A0A2E8TIH7|A0A2E8TIH7_9FLAO,tr|A0A2E8TIH7|A0A2E8TIH7_9FLAO,#0077B6,#0077B6,#0077B6,dashed,2,5.35,black,italic
+tr|A0A2E1J1E2|A0A2E1J1E2_9GAMM,tr|A0A2E1J1E2|A0A2E1J1E2_9GAMM,#90E0EF,#90E0EF,#90E0EF,dashed,2,29.980283,black,italic
+tr|A0A937I5B0|A0A937I5B0_9GAMM,tr|A0A937I5B0|A0A937I5B0_9GAMM,#90E0EF,#90E0EF,#90E0EF,dashed,2,25.581433,black,italic
+tr|J4V1D9|J4V1D9_9GAMM,tr|J4V1D9|J4V1D9_9GAMM,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.119358,black,italic
+tr|A0A2A4UZ46|A0A2A4UZ46_9GAMM,tr|A0A2A4UZ46|A0A2A4UZ46_9GAMM,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.119358,black,italic
+tr|T1XFK0|T1XFK0_VARPD,tr|T1XFK0|T1XFK0_VARPD,#023E8A,#023E8A,#023E8A,dashed,2,4.0,black,italic
+tr|A0A2S5T175|A0A2S5T175_9BURK,tr|A0A2S5T175|A0A2S5T175_9BURK,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.59865,black,italic
+sp|Q9A9Z2|XYLD_CAUVC,sp|Q9A9Z2|XYLD_CAUVC,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.59865,black,italic
+WP_112904778.1,WP_112904778.1,#90E0EF,#90E0EF,#90E0EF,dashed,2,29.818233,black,italic
+tr|A0A0G4H720|A0A0G4H720_VITBC,tr|A0A0G4H720|A0A0G4H720_VITBC,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.589917,black,italic
+tr|A0A076NTK8|A0A076NTK8_FLAPS,tr|A0A076NTK8|A0A076NTK8_FLAPS,#48CAE4,#48CAE4,#48CAE4,dashed,2,20.408907,black,italic
+tr|A0A925GQ02|A0A925GQ02_9BACT,tr|A0A925GQ02|A0A925GQ02_9BACT,#0096C7,#0096C7,#0096C7,dashed,2,12.8,black,italic
+tr|A0A961NSH3|A0A961NSH3_9LEPT,tr|A0A961NSH3|A0A961NSH3_9LEPT,#00B4D8,#00B4D8,#00B4D8,dashed,2,18.36839,black,italic
+tr|A0A8J2BU63|A0A8J2BU63_9BACT,tr|A0A8J2BU63|A0A8J2BU63_9BACT,#023E8A,#023E8A,#023E8A,dashed,2,1.0,black,italic
+tr|A0A0P0G010|A0A0P0G010_9BACT,tr|A0A0P0G010|A0A0P0G010_9BACT,#48CAE4,#48CAE4,#48CAE4,dashed,2,21.4395,black,italic
+tr|A0A523MBN0|A0A523MBN0_9GAMM,tr|A0A523MBN0|A0A523MBN0_9GAMM,#48CAE4,#48CAE4,#48CAE4,dashed,2,21.4395,black,italic
+tr|A0A2E9KV40|A0A2E9KV40_9SPIR,tr|A0A2E9KV40|A0A2E9KV40_9SPIR,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.617558,black,italic
+tr|A0A966XNI2|A0A966XNI2_9PROT,tr|A0A966XNI2|A0A966XNI2_9PROT,#48CAE4,#48CAE4,#48CAE4,dashed,2,22.349,black,italic
+tr|A0A5E6M727|A0A5E6M727_9BACT,tr|A0A5E6M727|A0A5E6M727_9BACT,#ADE8F4,#ADE8F4,#ADE8F4,dashed,2,30.496383,black,italic
+tr|A0A2V2UCR9|A0A2V2UCR9_9ARCH,tr|A0A2V2UCR9|A0A2V2UCR9_9ARCH,#48CAE4,#48CAE4,#48CAE4,dashed,2,22.408,black,italic
+tr|A0A212PRS7|A0A212PRS7_9CHLR,tr|A0A212PRS7|A0A212PRS7_9CHLR,#0096C7,#0096C7,#0096C7,dashed,2,10.565417,black,italic
+tr|A0A7C2UBE3|A0A7C2UBE3_UNCCH,tr|A0A7C2UBE3|A0A7C2UBE3_UNCCH,#00B4D8,#00B4D8,#00B4D8,dashed,2,15.614195,black,italic
+tr|A0A2E4A231|A0A2E4A231_9BACT,tr|A0A2E4A231|A0A2E4A231_9BACT,#90E0EF,#90E0EF,#90E0EF,dashed,2,29.980283,black,italic
+tr|A0A353X7C2|A0A353X7C2_9PROT,tr|A0A353X7C2|A0A353X7C2_9PROT,#48CAE4,#48CAE4,#48CAE4,dashed,2,21.643283,black,italic
+sp|Q97UB2|ILVD_SACS2,sp|Q97UB2|ILVD_SACS2,#023E8A,#023E8A,#023E8A,dashed,2,1.0,black,italic
+tr|A0A0D5ZDU2|A0A0D5ZDU2_UNCAX,tr|A0A0D5ZDU2|A0A0D5ZDU2_UNCAX,#FEF001,#FEF001,#FEF001,dashed,2,65.0,black,italic
+tr|A0A2H5ZBN6|A0A2H5ZBN6_9BACT,tr|A0A2H5ZBN6|A0A2H5ZBN6_9BACT,#0096C7,#0096C7,#0096C7,dashed,2,14.11885,black,italic
+tr|A0A522Q441|A0A522Q441_9BACT,tr|A0A522Q441|A0A522Q441_9BACT,#0077B6,#0077B6,#0077B6,dashed,2,5.0,black,italic
+tr|A0A6B0XBB3|A0A6B0XBB3_UNCGE,tr|A0A6B0XBB3|A0A6B0XBB3_UNCGE,#0096C7,#0096C7,#0096C7,dashed,2,13.014573,black,italic
+tr|A0A932RQF4|A0A932RQF4_9BACT,tr|A0A932RQF4|A0A932RQF4_9BACT,#0096C7,#0096C7,#0096C7,dashed,2,13.014573,black,italic
+tr|A0A2E0H2I4|A0A2E0H2I4_UNCCH,tr|A0A2E0H2I4|A0A2E0H2I4_UNCCH,#90E0EF,#90E0EF,#90E0EF,dashed,2,26.576175,black,italic
+tr|A0A3D2WEM3|A0A3D2WEM3_UNCGE,tr|A0A3D2WEM3|A0A3D2WEM3_UNCGE,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.589917,black,italic
+tr|A0A538M189|A0A538M189_UNCAC,tr|A0A538M189|A0A538M189_UNCAC,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.589917,black,italic
+tr|A0A7V9CSD2|A0A7V9CSD2_UNCAC,tr|A0A7V9CSD2|A0A7V9CSD2_UNCAC,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.589917,black,italic
+tr|A0A0M9AFE8|A0A0M9AFE8_THEAQ,tr|A0A0M9AFE8|A0A0M9AFE8_THEAQ,#0096C7,#0096C7,#0096C7,dashed,2,11.3158,black,italic
+tr|A0A1V0DDB1|A0A1V0DDB1_9BACT,tr|A0A1V0DDB1|A0A1V0DDB1_9BACT,#FD6104,#FD6104,#FD6104,dashed,2,75.0,black,italic
+tr|A0A537BLV1|A0A537BLV1_9PROT,tr|A0A537BLV1|A0A537BLV1_9PROT,#023E8A,#023E8A,#023E8A,dashed,2,1.0,black,italic
+tr|A0A2S6TPR5|A0A2S6TPR5_9PROT,tr|A0A2S6TPR5|A0A2S6TPR5_9PROT,#48CAE4,#48CAE4,#48CAE4,dashed,2,21.4395,black,italic
+tr|A0A4R5V7E5|A0A4R5V7E5_9RHOB,tr|A0A4R5V7E5|A0A4R5V7E5_9RHOB,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.723425,black,italic
+tr|A0A970XFT2|A0A970XFT2_9FIRM,tr|A0A970XFT2|A0A970XFT2_9FIRM,#48CAE4,#48CAE4,#48CAE4,dashed,2,21.7,black,italic
+tr|A0A1G9H8C5|A0A1G9H8C5_9FIRM,tr|A0A1G9H8C5|A0A1G9H8C5_9FIRM,#ADE8F4,#ADE8F4,#ADE8F4,dashed,2,35.0,black,italic
+tr|A0A7C5MIT9|A0A7C5MIT9_9ARCH,tr|A0A7C5MIT9|A0A7C5MIT9_9ARCH,#FFCE03,#FFCE03,#FFCE03,dashed,2,70.0,black,italic
+tr|A0A7C1JAI3|A0A7C1JAI3_9PROT,tr|A0A7C1JAI3|A0A7C1JAI3_9PROT,#00B4D8,#00B4D8,#00B4D8,dashed,2,19.4,black,italic
+tr|A0A023CY34|A0A023CY34_9LACO,tr|A0A023CY34|A0A023CY34_9LACO,#F00505,#F00505,#F00505,dashed,2,81.0,black,italic
+tr|A0A2T6D2G6|A0A2T6D2G6_9BACT,tr|A0A2T6D2G6|A0A2T6D2G6_9BACT,#48CAE4,#48CAE4,#48CAE4,dashed,2,22.7,black,italic
+tr|Q1LEH9|Q1LEH9_CUPMC,tr|Q1LEH9|Q1LEH9_CUPMC,#ADE8F4,#ADE8F4,#ADE8F4,dashed,2,35.0,black,italic
+tr|M1LAK9|M1LAK9_9PROT,tr|M1LAK9|M1LAK9_9PROT,#ADE8F4,#ADE8F4,#ADE8F4,dashed,2,35.0,black,italic
+sp|P05791|ILVD_ECOLI,sp|P05791|ILVD_ECOLI,#00B4D8,#00B4D8,#00B4D8,dashed,2,15.8,black,italic
+tr|A0P843|A0P843_9PROT,tr|A0P843|A0P843_9PROT,#ADE8F4,#ADE8F4,#ADE8F4,dashed,2,35.0,black,italic
+tr|A0A1S7LFV7|A0A1S7LFV7_MAGMO,tr|A0A1S7LFV7|A0A1S7LFV7_MAGMO,#ADE8F4,#ADE8F4,#ADE8F4,dashed,2,35.0,black,italic
+tr|A0A7L5C056|A0A7L5C056_9RHOB,tr|A0A7L5C056|A0A7L5C056_9RHOB,#0096C7,#0096C7,#0096C7,dashed,2,14.987618,black,italic
+tr|A0A2E9Y3F7|A0A2E9Y3F7_9PROT,tr|A0A2E9Y3F7|A0A2E9Y3F7_9PROT,#00B4D8,#00B4D8,#00B4D8,dashed,2,15.614195,black,italic
+tr|A0A2N7DSU9|A0A2N7DSU9_9GAMM,tr|A0A2N7DSU9|A0A2N7DSU9_9GAMM,#0096C7,#0096C7,#0096C7,dashed,2,13.014573,black,italic
+tr|A0A1G3NZU3|A0A1G3NZU3_9SPIR,tr|A0A1G3NZU3|A0A1G3NZU3_9SPIR,#48CAE4,#48CAE4,#48CAE4,dashed,2,24.69625,black,italic
+tr|A0A949C8I6|A0A949C8I6_9PROT,tr|A0A949C8I6|A0A949C8I6_9PROT,#03045E,#03045E,#03045E,dashed,2,-0.1,black,italic
+tr|A0A2D9QS98|A0A2D9QS98_9BACT,tr|A0A2D9QS98|A0A2D9QS98_9BACT,#00B4D8,#00B4D8,#00B4D8,dashed,2,19.776808,black,italic
+tr|A0A964Q2Y8|A0A964Q2Y8_9BACT,tr|A0A964Q2Y8|A0A964Q2Y8_9BACT,#0096C7,#0096C7,#0096C7,dashed,2,11.012346,black,italic
+tr|A9LH23|A9LH23_9BACT,tr|A9LH23|A9LH23_9BACT,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.119358,black,italic
+tr|A0A960NAF1|A0A960NAF1_9BACT,tr|A0A960NAF1|A0A960NAF1_9BACT,#90E0EF,#90E0EF,#90E0EF,dashed,2,26.780158,black,italic
+tr|A0A2E3CC86|A0A2E3CC86_9CHLR,tr|A0A2E3CC86|A0A2E3CC86_9CHLR,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.589917,black,italic
+tr|A0A2E5HTG0|A0A2E5HTG0_UNCCH,tr|A0A2E5HTG0|A0A2E5HTG0_UNCCH,#90E0EF,#90E0EF,#90E0EF,dashed,2,25.221787,black,italic
+tr|A0A800EWV4|A0A800EWV4_9CHLR,tr|A0A800EWV4|A0A800EWV4_9CHLR,#90E0EF,#90E0EF,#90E0EF,dashed,2,27.589917,black,italic
+tr|A0A7Y1V809|A0A7Y1V809_9BACT,tr|A0A7Y1V809|A0A7Y1V809_9BACT,#ADE8F4,#ADE8F4,#ADE8F4,dashed,2,30.496383,black,italic
